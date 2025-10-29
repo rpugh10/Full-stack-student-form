@@ -13,34 +13,45 @@ namespace Assignment1
 {
     public partial class Form5 : Form
     {
-        String input = "";
+        String description = "";
         String name = "";
+        Record record = new Record();
         public Form5()
         {
             InitializeComponent();
         }
 
-        public Form5(String input, String name)
+        public Form5(String description, String name)
         {
             InitializeComponent();
             textBox1.Text = name;
-            richTextBox1.Text = input;
+            richTextBox1.Text = description;
             this.name = name;
-            this.input = input;
+            this.description = description;
+        }
+
+        public Form5(Record record)
+        {
+            InitializeComponent();
+            this.record = record;
+            this.name = record.getName();
+            this.description = record.getDescription();
+            richTextBox1.Text = record.getDescription();
+            textBox1.Text = record.getName();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StreamWriter sWrite = new StreamWriter("C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form5.txt");
-            sWrite.WriteLine(name);
-            sWrite.WriteLine(input);
-            sWrite.Close();
+            record.setName(name);
+            record.setDescription(description);
+            record.setSageNum(5);
+            button1.Enabled = false;
             this.Close();
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            input = richTextBox1.Text;
+            description = richTextBox1.Text;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
