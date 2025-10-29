@@ -12,6 +12,7 @@ namespace Assignment1
 {
     public partial class AdimForm : Form
     {
+        String filePath = "";
         public AdimForm()
         {
             InitializeComponent();
@@ -43,11 +44,19 @@ namespace Assignment1
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Form5 form = new Form5();
-            form.ShowDialog();
+           OpenFileDialog openFileDialog = new OpenFileDialog();
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                filePath = openFileDialog.FileName;
+            }
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void AdimForm_Load(object sender, EventArgs e)
         {
 
         }

@@ -14,6 +14,19 @@ namespace Assignment1
     public partial class Form1 : Form
     {
         String input = "";
+        String studentName = "";
+        String studentEmail = "";
+        String studentID = "";
+        String studentPhoneNumber = "";
+        String courseNumber = "";
+        String profName = "";
+        String courseName = "";
+        Boolean fall = false;
+        Boolean winter = false;
+        Boolean summer = false;
+        String year = "";
+        String openLearnin = "";
+
         public Form1()
         {
             InitializeComponent();
@@ -62,9 +75,102 @@ namespace Assignment1
         private void button1_Click(object sender, EventArgs e)
         {
             StreamWriter writer = new StreamWriter("C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form1.txt");
-            writer.Write(input);
+            writer.WriteLine(studentName);
+            writer.WriteLine(studentEmail);
+            writer.WriteLine(studentID);
+            writer.WriteLine(studentPhoneNumber);
+            writer.WriteLine(courseNumber);
+            writer.WriteLine(profName);
+            writer.WriteLine(courseName);
+            writer.WriteLine(fall);
+            writer.WriteLine(winter);
+            writer.WriteLine(summer);
+            writer.WriteLine(year);
+            writer.WriteLine(openLearnin);
+            writer.WriteLine(input);
             writer.Close();
             this.Close();
+        }
+
+        private void textBox18_TextChanged(object sender, EventArgs e)
+        {
+            studentName = textBox18.Text;
+        }
+
+        private void textBox16_TextChanged(object sender, EventArgs e)
+        {
+            studentEmail = textBox16.Text;
+        }
+
+        private void textBox17_TextChanged(object sender, EventArgs e)
+        {
+            studentID = textBox17.Text;
+        }
+
+        private void textBox14_TextChanged(object sender, EventArgs e)
+        {
+            studentPhoneNumber = textBox18.Text;
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+            courseNumber = textBox12.Text;
+        }
+
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+            profName = textBox11.Text;
+        }
+
+        private void textBox13_TextChanged(object sender, EventArgs e)
+        {
+            courseName = textBox13.Text;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                fall = true;
+            }
+            else
+            {
+                fall = false;
+            }
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton3.Checked)
+            {
+                winter = true;
+            }
+            else
+            {
+                winter = false;
+            }
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked)
+            {
+                summer = true;
+            }
+            else
+            {
+                summer = false;
+            }
+        }
+
+        private void textBox15_TextChanged(object sender, EventArgs e)
+        {
+            year = textBox15.Text;
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+            openLearnin = textBox10.Text;
         }
     }
 }

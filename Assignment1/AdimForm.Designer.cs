@@ -103,6 +103,7 @@
             this.Controls.Add(this.button1);
             this.Name = "AdimForm";
             this.Text = "AdimForm";
+            this.Load += new System.EventHandler(this.AdimForm_Load);
             this.ResumeLayout(false);
 
         }

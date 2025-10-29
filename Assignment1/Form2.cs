@@ -18,14 +18,24 @@ namespace Assignment1
         Boolean box2 = false;
         Boolean box3 = false;
         Boolean box4 = false;
+        String sign = "";
         public Form2()
         {
             InitializeComponent();
         }
 
+        public Form2(String input)
+        {
+            InitializeComponent();
+            richTextBox1.Text = input;
+
+            
+            
+        }
+
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBox1.Equals(true))
+            if(checkBox1.Checked)
             {
                 box1 = true;
             }
@@ -69,13 +79,14 @@ namespace Assignment1
             writer.WriteLine(box2);
             writer.WriteLine(box3);
             writer.WriteLine(box4);
+            writer.WriteLine(sign);
             writer.Close();
             this.Close();
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox2.Equals(true))
+            if (checkBox2.Checked)
             {
                 box2 = true;
             }
@@ -87,7 +98,7 @@ namespace Assignment1
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox3.Equals(true))
+            if (checkBox3.Checked)
             {
                 box3 = true;
             }
@@ -99,7 +110,7 @@ namespace Assignment1
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBox4.Equals(true))
+            if(checkBox4.Checked)
             {
                 box4 = true;
             }
@@ -107,6 +118,11 @@ namespace Assignment1
             {
                 box4 = false;
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            sign = textBox1.Text;
         }
     }
 }

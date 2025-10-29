@@ -20,6 +20,15 @@ namespace Assignment1
             InitializeComponent();
         }
 
+        public Form5(String input, String name)
+        {
+            InitializeComponent();
+            textBox1.Text = name;
+            richTextBox1.Text = input;
+            this.name = name;
+            this.input = input;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             StreamWriter sWrite = new StreamWriter("C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form5.txt");
@@ -37,6 +46,11 @@ namespace Assignment1
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             name = textBox1.Text;
+        }
+
+        private void Form5_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

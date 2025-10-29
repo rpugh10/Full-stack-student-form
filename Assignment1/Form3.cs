@@ -36,5 +36,10 @@ namespace Assignment1
             write.Close();
             this.Close();
         }
+       
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
