@@ -14,9 +14,18 @@ namespace Assignment1
     public partial class Form3 : Form
     {
         String input = "";
+        Record record = new Record();
         public Form3()
         {
             InitializeComponent();
+        }
+
+        public Form3(Record record)
+        {
+            InitializeComponent();
+            this.record = record;
+            this.input = record.getInstructorInput();
+            richTextBox1.Text = record.getInstructorInput();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -31,9 +40,8 @@ namespace Assignment1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StreamWriter write = new StreamWriter("C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form3.txt");
-            write.WriteLine(input);
-            write.Close();
+            record.setInstructorInput(input);
+            record.setSageNum(3);
             this.Close();
         }
        

@@ -45,7 +45,6 @@ namespace Assignment1
             record.setName(name);
             record.setDescription(description);
             record.setSageNum(5);
-            button1.Enabled = false;
             this.Close();
         }
 

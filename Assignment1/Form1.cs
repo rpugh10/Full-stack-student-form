@@ -26,10 +26,40 @@ namespace Assignment1
         Boolean summer = false;
         String year = "";
         String openLearnin = "";
+        Record record = new Record();
 
         public Form1()
         {
             InitializeComponent();
+        }
+
+        public Form1(Record record)
+        {
+            InitializeComponent();
+            this.record = record;
+            this.input = record.getAppeal();
+            this.studentName = record.getStudentName();
+            this.studentID = record.getStudentId();
+            this.studentPhoneNumber = record.getStudentPhoneNum();
+            this.courseNumber = record.getCourseAcronNum();
+            this.profName = record.getInstructorName();
+            this.courseName = record.getCourseTitle();
+            this.fall = record.getRadButton1();
+            this.summer = record.getRadButton2();
+            this.winter = record.getRadButton3();
+            this.year = record.getYear();
+            this.openLearnin = record.getOpenLearningStart();
+
+            richTextBox1.Text = input;
+            textBox18.Text = studentName;
+            textBox17.Text = studentID;
+            textBox12.Text = courseNumber;
+            textBox13.Text = courseName;
+            textBox16.Text = studentEmail;
+            textBox14.Text = studentPhoneNumber;
+            textBox11.Text = profName;
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -109,7 +139,7 @@ namespace Assignment1
 
         private void textBox14_TextChanged(object sender, EventArgs e)
         {
-            studentPhoneNumber = textBox18.Text;
+            studentPhoneNumber = textBox14.Text;
         }
 
         private void textBox12_TextChanged(object sender, EventArgs e)

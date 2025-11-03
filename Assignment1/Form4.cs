@@ -15,17 +15,27 @@ namespace Assignment1
     {
         String input = "";
         String name = "";
+        Record record = new Record();
         public Form4()
         {
             InitializeComponent();
         }
 
+        public Form4(Record record)
+        {
+            InitializeComponent();
+            this.record = record;
+            this.name = record.getChairName();
+            this.input = record.getChairInput();
+            richTextBox1.Text = record.getChairInput();
+            textBox1.Text = record.getChairName();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            StreamWriter writer = new StreamWriter("C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form4.txt");
-            writer.WriteLine(name);
-            writer.WriteLine(input);
-            writer.Close();
+            record.setChairName(name);
+            record.setChairInput(input);
+            record.setSageNum(4);
             this.Close();
         }
 
@@ -37,6 +47,21 @@ namespace Assignment1
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             name = textBox1.Text;
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -19,6 +19,8 @@ namespace Assignment1
         Boolean box3 = false;
         Boolean box4 = false;
         String sign = "";
+        String date = "";
+        Record record = new Record();
         public Form2()
         {
             InitializeComponent();
@@ -28,8 +30,25 @@ namespace Assignment1
         {
             InitializeComponent();
             richTextBox1.Text = input;
+        }
 
-            
+        public Form2(Record record)
+        {
+            InitializeComponent();
+            this.record = record;
+            this.input = record.getResolution();
+            this.box1 = record.getCheckBox1();
+            this.box2 = record.getCheckBox2();
+            this.box3 = record.getCheckBox3();
+            this.box4 = record.getCheckBox4();
+            this.sign = record.getSignature();
+            this.date = record.getDate();
+            richTextBox1.Text = record.getResolution();
+            checkBox1.Checked = record.getCheckBox1();
+            checkBox2.Checked = record.getCheckBox2();
+            checkBox3.Checked = record.getCheckBox3();
+            checkBox4.Checked = record.getCheckBox4();
+            textBox1.Text = record.getSignature();
             
         }
 
@@ -73,14 +92,13 @@ namespace Assignment1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StreamWriter writer = new StreamWriter("C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form2.txt");
-            writer.WriteLine(input);
-            writer.WriteLine(box1);
-            writer.WriteLine(box2);
-            writer.WriteLine(box3);
-            writer.WriteLine(box4);
-            writer.WriteLine(sign);
-            writer.Close();
+            record.setResolution(input);
+            record.setCheckBox1(box1);
+            record.setCheckBox2(box2);
+            record.setCheckBox3(box3);    
+            record.setCheckBox4(box4);
+            record.setSignature(sign);
+            record.setDate(date);
             this.Close();
         }
 
@@ -123,6 +141,16 @@ namespace Assignment1
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             sign = textBox1.Text;
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+         
         }
     }
 }

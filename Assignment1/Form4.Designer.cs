@@ -74,6 +74,7 @@
             this.label3.Size = new System.Drawing.Size(696, 26);
             this.label3.TabIndex = 3;
             this.label3.Text = resources.GetString("label3.Text");
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // richTextBox1
             // 
@@ -93,6 +94,7 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Describe the outcome of your communtication with this individual and/or attached " +
     "copies of related communications";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // button1
             // 
@@ -118,6 +120,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form4";
             this.Text = "Form4";
+            this.Load += new System.EventHandler(this.Form4_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
