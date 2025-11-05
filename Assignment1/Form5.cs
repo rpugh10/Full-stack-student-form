@@ -44,7 +44,7 @@ namespace Assignment1
         {
             record.setName(name);
             record.setDescription(description);
-            record.setSageNum(5);
+            record.setStageNum(5);
             this.Close();
         }
 

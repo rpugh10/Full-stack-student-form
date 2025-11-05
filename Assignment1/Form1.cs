@@ -40,6 +40,7 @@ namespace Assignment1
             this.input = record.getAppeal();
             this.studentName = record.getStudentName();
             this.studentID = record.getStudentId();
+            this.studentEmail = record.getStudentEmail();
             this.studentPhoneNumber = record.getStudentPhoneNum();
             this.courseNumber = record.getCourseAcronNum();
             this.profName = record.getInstructorName();
@@ -58,13 +59,21 @@ namespace Assignment1
             textBox16.Text = studentEmail;
             textBox14.Text = studentPhoneNumber;
             textBox11.Text = profName;
-
+            textBox13.Text = courseName;
+            radioButton1.Checked = fall;
+            radioButton2.Checked = winter;
+            radioButton3.Checked = summer;
+            textBox15.Text = year;
+            textBox10.Text = openLearnin;
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            if (record.submitted)
+            {
+                SetReadOnly();
+            }
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -104,21 +113,21 @@ namespace Assignment1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StreamWriter writer = new StreamWriter("C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form1.txt");
-            writer.WriteLine(studentName);
-            writer.WriteLine(studentEmail);
-            writer.WriteLine(studentID);
-            writer.WriteLine(studentPhoneNumber);
-            writer.WriteLine(courseNumber);
-            writer.WriteLine(profName);
-            writer.WriteLine(courseName);
-            writer.WriteLine(fall);
-            writer.WriteLine(winter);
-            writer.WriteLine(summer);
-            writer.WriteLine(year);
-            writer.WriteLine(openLearnin);
-            writer.WriteLine(input);
-            writer.Close();
+            record.setAppeal(input);
+            record.setStudentName(studentName);
+            record.setCourseAcronNum(courseNumber);
+            record.setStudentId(studentID);
+            record.setStudentPhoneNum(studentPhoneNumber);
+            record.setInstructorName(profName);
+            record.setRadButton1(fall);
+            record.setRadButton2(winter);
+            record.setRadButton3(summer);
+            record.setYear(year);
+            record.setOpenLearningStart(openLearnin);
+            record.setCourseTitle(courseName);
+            record.setStudentEmail(studentEmail);
+            record.setStageNum(1);
+            record.submitted = true;
             this.Close();
         }
 
@@ -201,6 +210,25 @@ namespace Assignment1
         private void textBox10_TextChanged(object sender, EventArgs e)
         {
             openLearnin = textBox10.Text;
+        }
+
+        private void SetReadOnly()
+        {
+            foreach(Control control in this.Controls)
+            {
+                if(control is TextBox tb)
+                {
+                    tb.ReadOnly = true;
+                }
+                else if(control is RadioButton radioButton)
+                {
+                    radioButton.Enabled = false;
+                }
+                else if(control is RichTextBox richtxt)
+                {
+                    richtxt.ReadOnly = true;
+                }
+            }
         }
     }
 }

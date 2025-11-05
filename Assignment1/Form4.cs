@@ -35,7 +35,7 @@ namespace Assignment1
         {
             record.setChairName(name);
             record.setChairInput(input);
-            record.setSageNum(4);
+            record.setStageNum(4);
             this.Close();
         }
 

@@ -24,34 +24,41 @@ namespace Assignment1
             InitializeComponent();
         }
 
+
+
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
+            Form1 form = new Form1(record);
             form.ShowDialog();
+            AdimForm_Load(sender, e);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Form2 form = new Form2(record);
             form.ShowDialog();
+            AdimForm_Load(sender, e);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             Form3 form = new Form3(record);
             form.ShowDialog();
+            AdimForm_Load(sender, e);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             Form4 form = new Form4(record);
             form.ShowDialog();
+            AdimForm_Load(sender, e);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
            Form5 form = new Form5(record);
             form.ShowDialog();
+            AdimForm_Load(sender, e);
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -61,7 +68,57 @@ namespace Assignment1
 
         private void AdimForm_Load(object sender, EventArgs e)
         {
+            int stageNum = record.getStageNum();
+            if(stageNum == 0)
+            {
+                button1.Enabled = true;
+                button2.Enabled = false;
+                button3.Enabled = false;
+                button4.Enabled = false;
+                button5.Enabled = false;
+            }
+            else if(stageNum == 1)
+            {
+                button1.Enabled =true;
+                button2.Enabled = true;
+                button3.Enabled = false;
+                button4.Enabled = false;
+                button5.Enabled = false;
+            }
+            else if (stageNum == 2)
+            {
+                button1.Enabled = true;
+                button2.Enabled = true;
+                button3.Enabled = true;
+                button4.Enabled = false;
+                button5.Enabled = false;
+            }
+            else if(stageNum == 3)
+            {
+                button1.Enabled =true;
+                button2.Enabled = true;
+                button3.Enabled = true;
+                button4.Enabled = true;
+                button5.Enabled = false;
+            }
+            else
+            {
+                button1.Enabled = true;
+                button2.Enabled = true;
+                button3.Enabled = true;
+                button4.Enabled = true;
+                button5.Enabled = true;
+            }
+        }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

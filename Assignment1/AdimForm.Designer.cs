@@ -101,6 +101,7 @@
             this.button6.TabIndex = 5;
             this.button6.Text = "Open";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -110,6 +111,7 @@
             this.button7.TabIndex = 6;
             this.button7.Text = "New";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // AdimForm
             // 

@@ -66,7 +66,10 @@ namespace Assignment1
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            if (record.submitted)
+            {
+                SetReadOnly();
+            }
 
         }
 
@@ -99,6 +102,7 @@ namespace Assignment1
             record.setCheckBox4(box4);
             record.setSignature(sign);
             record.setDate(date);
+            record.setStageNum(2);
             this.Close();
         }
 
@@ -151,6 +155,22 @@ namespace Assignment1
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
          
+        }
+
+        private void SetReadOnly()
+        {
+            foreach (Control control in this.Controls)
+            {
+                
+                if (control is CheckBox check)
+                {
+                    check.Enabled = false;
+                }
+                else if (control is RichTextBox richtxt)
+                {
+                    richtxt.ReadOnly = true;
+                }
+            }
         }
     }
 }

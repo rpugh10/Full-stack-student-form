@@ -41,7 +41,7 @@ namespace Assignment1
         private void button1_Click(object sender, EventArgs e)
         {
             record.setInstructorInput(input);
-            record.setSageNum(3);
+            record.setStageNum(3);
             this.Close();
         }
        
