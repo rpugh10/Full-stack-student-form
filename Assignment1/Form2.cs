@@ -66,7 +66,7 @@ namespace Assignment1
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            if (record.submitted)
+            if (record.submitted == true)
             {
                 SetReadOnly();
             }
@@ -103,6 +103,7 @@ namespace Assignment1
             record.setSignature(sign);
             record.setDate(date);
             record.setStageNum(2);
+            record.submitted = true;
             this.Close();
         }
 
@@ -169,6 +170,10 @@ namespace Assignment1
                 else if (control is RichTextBox richtxt)
                 {
                     richtxt.ReadOnly = true;
+                }
+                else if(control is TextBox textbox)
+                {
+                    textbox.ReadOnly = true;
                 }
             }
         }

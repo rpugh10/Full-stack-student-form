@@ -41,7 +41,7 @@ namespace Assignment1
         private String year = "";
         private String openLearningStart = "";
 
-        public Boolean submitted { get; set; }
+        public Boolean submitted = false;
 
 
         public Record(int stageNum)
@@ -59,6 +59,16 @@ namespace Assignment1
             this.name = name;
             this.description = description;
         }
+
+        public void setSubmitted(Boolean submitted)
+        {
+            this.submitted = submitted;
+        }
+
+        public Boolean getSubmitted() 
+        { 
+            return submitted; 
+        } 
 
         public void setOpenLearningStart(String openLearningStart)
         {
