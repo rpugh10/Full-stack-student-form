@@ -66,7 +66,10 @@ namespace Assignment1
 
         private void Form2_Load(object sender, EventArgs e)
         {
-        
+            if(record.getStageNum() >= 2)
+            {
+                SetReadOnly(this);
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -99,7 +102,6 @@ namespace Assignment1
             record.setSignature(sign);
             record.setDate(date);
             record.setStageNum(2);
-            SetReadOnly(this);
             this.Close();
         }
 

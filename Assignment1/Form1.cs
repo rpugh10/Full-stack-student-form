@@ -70,7 +70,10 @@ namespace Assignment1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          
+          if(record.getStageNum() >= 1)
+            {
+                SetReadOnly(this);
+            }
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -124,7 +127,6 @@ namespace Assignment1
             record.setCourseTitle(courseName);
             record.setStudentEmail(studentEmail);
             record.setStageNum(1);
-            SetReadOnly(this);
             this.Close();
         }
 

@@ -56,12 +56,39 @@ namespace Assignment1
 
         private void Form4_Load(object sender, EventArgs e)
         {
-
+            if(record.getStageNum() >= 4)
+            {
+                SetReadOnly(this);
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void SetReadOnly(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+
+                if (control is CheckBox check)
+                {
+                    check.Enabled = false;
+                }
+                else if (control is RichTextBox richtxt)
+                {
+                    richtxt.ReadOnly = true;
+                }
+                else if (control is TextBox textbox)
+                {
+                    textbox.ReadOnly = true;
+                }
+                else if (control.HasChildren)
+                {
+                    SetReadOnly(control);
+                }
+            }
         }
     }
 }
