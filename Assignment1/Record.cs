@@ -60,6 +60,11 @@ namespace Assignment1
             this.description = description;
         }
 
+        public void createFile(String filePath)
+        {
+            
+        }
+
         public void setSubmitted(Boolean submitted)
         {
             this.submitted = submitted;

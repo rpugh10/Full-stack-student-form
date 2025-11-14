@@ -70,10 +70,7 @@ namespace Assignment1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (record.submitted)
-            {
-                SetReadOnly();
-            }
+          
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -127,7 +124,7 @@ namespace Assignment1
             record.setCourseTitle(courseName);
             record.setStudentEmail(studentEmail);
             record.setStageNum(1);
-            record.submitted = true;
+            SetReadOnly(this);
             this.Close();
         }
 
@@ -212,9 +209,9 @@ namespace Assignment1
             openLearnin = textBox10.Text;
         }
 
-        private void SetReadOnly()
+        private void SetReadOnly(Control parent)
         {
-            foreach(Control control in this.Controls)
+            foreach(Control control in parent.Controls)
             {
                 if(control is TextBox tb)
                 {
@@ -227,6 +224,10 @@ namespace Assignment1
                 else if(control is RichTextBox richtxt)
                 {
                     richtxt.ReadOnly = true;
+                }
+                else if (control.HasChildren)
+                {
+                    SetReadOnly(control);
                 }
             }
         }

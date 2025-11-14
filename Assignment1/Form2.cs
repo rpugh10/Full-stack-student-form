@@ -66,11 +66,7 @@ namespace Assignment1
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            if (record.submitted == true)
-            {
-                SetReadOnly();
-            }
-
+        
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -103,7 +99,7 @@ namespace Assignment1
             record.setSignature(sign);
             record.setDate(date);
             record.setStageNum(2);
-            record.submitted = true;
+            SetReadOnly(this);
             this.Close();
         }
 
@@ -158,9 +154,9 @@ namespace Assignment1
          
         }
 
-        private void SetReadOnly()
+        private void SetReadOnly(Control parent)
         {
-            foreach (Control control in this.Controls)
+            foreach (Control control in parent.Controls)
             {
                 
                 if (control is CheckBox check)
@@ -174,6 +170,10 @@ namespace Assignment1
                 else if(control is TextBox textbox)
                 {
                     textbox.ReadOnly = true;
+                }
+                else if (control.HasChildren)
+                {
+                    SetReadOnly(control);
                 }
             }
         }
