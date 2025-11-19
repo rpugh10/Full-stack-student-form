@@ -235,7 +235,20 @@ namespace Assignment1
         private void saveToFile(Object sender, EventArgs e)
         {
             StreamWriter writer = new StreamWriter("C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form1.txt");
-            writer.WriteLine(studentName + "\n"  + studentEmail + "\n " + studentID + "\n " + studentPhoneNumber + "\n " + courseNumber + "\n" + profName + "\n" + courseName + "\n " + fall + "\n " + winter + "\n " + summer + "\n " + year + "\n " + openLearnin + "\n " + input);
+            writer.WriteLine(studentName);
+            writer.WriteLine(studentEmail);
+            writer.WriteLine(studentID);
+            writer.WriteLine(studentPhoneNumber);   
+            writer.WriteLine(courseNumber);
+            writer.WriteLine(profName);
+            writer.WriteLine(courseName);
+            writer.WriteLine(fall);
+            writer.WriteLine(winter);
+            writer.WriteLine(summer);
+            writer.WriteLine(year);
+            writer.WriteLine(openLearnin);
+            writer.WriteLine(input);
+            writer.WriteLine("End of form 1");
             writer.Close();
         }
     }
