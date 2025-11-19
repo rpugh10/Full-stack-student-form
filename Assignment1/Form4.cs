@@ -84,11 +84,13 @@ namespace Assignment1
                 {
                     textbox.ReadOnly = true;
                 }
-                else if (control.HasChildren)
-                {
-                    SetReadOnly(control);
-                }
+               
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -61,19 +61,9 @@ namespace Assignment1
         }
 
         public void createFile(String filePath)
-        {
+        { 
             
         }
-
-        public void setSubmitted(Boolean submitted)
-        {
-            this.submitted = submitted;
-        }
-
-        public Boolean getSubmitted() 
-        { 
-            return submitted; 
-        } 
 
         public void setOpenLearningStart(String openLearningStart)
         {

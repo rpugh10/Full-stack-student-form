@@ -127,6 +127,7 @@ namespace Assignment1
             record.setCourseTitle(courseName);
             record.setStudentEmail(studentEmail);
             record.setStageNum(1);
+            saveToFile(this, e);
             this.Close();
         }
 
@@ -227,11 +228,15 @@ namespace Assignment1
                 {
                     richtxt.ReadOnly = true;
                 }
-                else if (control.HasChildren)
-                {
-                    SetReadOnly(control);
-                }
+           
             }
+        }
+
+        private void saveToFile(Object sender, EventArgs e)
+        {
+            StreamWriter writer = new StreamWriter("C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form1.txt");
+            writer.WriteLine(studentName + "\n"  + studentEmail + "\n " + studentID + "\n " + studentPhoneNumber + "\n " + courseNumber + "\n" + profName + "\n" + courseName + "\n " + fall + "\n " + winter + "\n " + summer + "\n " + year + "\n " + openLearnin + "\n " + input);
+            writer.Close();
         }
     }
 }

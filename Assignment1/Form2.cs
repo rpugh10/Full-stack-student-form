@@ -160,7 +160,7 @@ namespace Assignment1
         {
             foreach (Control control in parent.Controls)
             {
-                
+
                 if (control is CheckBox check)
                 {
                     check.Enabled = false;
@@ -169,13 +169,9 @@ namespace Assignment1
                 {
                     richtxt.ReadOnly = true;
                 }
-                else if(control is TextBox textbox)
+                else if (control is TextBox textbox)
                 {
                     textbox.ReadOnly = true;
-                }
-                else if (control.HasChildren)
-                {
-                    SetReadOnly(control);
                 }
             }
         }
