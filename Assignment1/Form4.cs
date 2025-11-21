@@ -10,6 +10,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Assignment1
 {
@@ -95,16 +96,16 @@ namespace Assignment1
         private void button2_Click(object sender, EventArgs e)
         {
             var startInfo = new ProcessStartInfo();
-            startInfo.FileName = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Comp2210C#\\RealPythonSearchFunction.py";
+            startInfo.FileName = "python";
 
-            var script = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Comp2210C#\\RealPythonSearchFunction.py";
+            var script = @"C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Comp2210C#\\RealPythonSearchFunction.py";
 
-            startInfo.Arguments = $"\"{script}\"\"{wordSearch}\"\"{"C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form6.txt"}\"";            startInfo.UseShellExecute = false;            startInfo.CreateNoWindow = true;            startInfo.RedirectStandardOutput = true;            startInfo.RedirectStandardError = true;            var error = "";            var output = "";            using (Process process = Process.Start(startInfo))
+            startInfo.Arguments = $"\"{script}\"\"{wordSearch}\"\"{record.getFilePath()}\"";            startInfo.UseShellExecute = false;            startInfo.CreateNoWindow = true;            startInfo.RedirectStandardOutput = true;            startInfo.RedirectStandardError = true;            var error = "";            var output = "";            using (Process process = Process.Start(startInfo))
             {
                 error = process.StandardError.ReadToEnd();
                 output = process.StandardOutput.ReadToEnd();
             }
-
+            richTextBox2.Text = output + "\n" + error;
          
         }
 
@@ -122,6 +123,16 @@ namespace Assignment1
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             wordSearch = textBox2.Text;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
