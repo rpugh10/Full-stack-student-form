@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -94,11 +95,15 @@ namespace Assignment1
         private void button2_Click(object sender, EventArgs e)
         {
             var startInfo = new ProcessStartInfo();
-            startInfo.FileName = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Comp2210C#\\PythonSearchFuntion.py";
+            startInfo.FileName = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Comp2210C#\\RealPythonSearchFunction.py";
 
-            var script = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Comp2210C#\\PythonSearchFuntion.py";
+            var script = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Comp2210C#\\RealPythonSearchFunction.py";
 
-            startInfo.Arguments = $"\"{script}\"\"{wordSearch}\"\"{record.getFilePath()}\"";
+            startInfo.Arguments = $"\"{script}\"\"{wordSearch}\"\"{"C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form6.txt"}\"";            startInfo.UseShellExecute = false;            startInfo.CreateNoWindow = true;            startInfo.RedirectStandardOutput = true;            startInfo.RedirectStandardError = true;            var error = "";            var output = "";            using (Process process = Process.Start(startInfo))
+            {
+                error = process.StandardError.ReadToEnd();
+                output = process.StandardOutput.ReadToEnd();
+            }
 
          
         }

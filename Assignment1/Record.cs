@@ -83,6 +83,7 @@ namespace Assignment1
             writer.WriteLine(studentEmail);
             writer.WriteLine(studentPhoneNum);
             writer.WriteLine(courseAcronNum);
+            writer.WriteLine(instructorName);
             writer.WriteLine(courseTitle);
             writer.WriteLine(radButton1);
             writer.WriteLine(radButton2);

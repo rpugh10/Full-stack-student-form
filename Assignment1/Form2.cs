@@ -188,7 +188,7 @@ namespace Assignment1
                 writer.WriteLine("User confirmed that the information they've provided is truthful and accurate: " + box3);
                 writer.WriteLine("User paid the fee: " + box4);
                 writer.WriteLine("Signature of applicant: " + sign);
-                writer.WriteLine("Date subbmitted: " + date);
+                writer.WriteLine("Date submitted: " + date);
                 writer.Close();
             }
         }
