@@ -45,6 +45,7 @@ namespace Assignment1
             record.setName(name);
             record.setDescription(description);
             record.setStageNum(5);
+            saveToFile();
             this.Close();
         }
 
@@ -60,7 +61,7 @@ namespace Assignment1
 
         private void Form5_Load(object sender, EventArgs e)
         {
-            if(record.getStageNum() >= 5)
+            if (record.getStageNum() >= 5)
             {
                 SetReadOnly(this);
             }
@@ -90,5 +91,17 @@ namespace Assignment1
         {
 
         }
+
+        private void saveToFile()
+        {
+            String filePath = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form5.txt";
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.WriteLine("Name of individual " + "\n" + name);
+                writer.WriteLine("Describe the outcome of your communtication with this individual and/or attached copies of related communications " + " \n" + description);
+                writer.Close();
+            }
+        }
     }
+
 }

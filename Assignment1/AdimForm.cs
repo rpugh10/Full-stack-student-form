@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -113,12 +114,26 @@ namespace Assignment1
 
         private void button6_Click(object sender, EventArgs e)
         {
+            String filePath = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output";
+            openFileExplorer(filePath);
 
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            
+            String filePath = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form6.txt";
+            SaveFileDialog saveToFile = new SaveFileDialog();
+            saveToFile.Filter = "txt files (*.txt)| *.txt";
+            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                record.createFile(filePath);
+            }
+
+        }
+
+        private static void openFileExplorer(String filePath)
+        {
+            Process.Start(filePath);
         }
     }
 }

@@ -102,6 +102,7 @@ namespace Assignment1
             record.setSignature(sign);
             record.setDate(date);
             record.setStageNum(2);
+            saveToFile();
             this.Close();
         }
 
@@ -173,6 +174,22 @@ namespace Assignment1
                 {
                     textbox.ReadOnly = true;
                 }
+            }
+        }
+
+        private void saveToFile()
+        {
+            String filePath = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form2.txt";
+            using(StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.WriteLine("Resolution being sought: " + input);
+                writer.WriteLine("User attempted to resovlve the issue with my instructor, Chair, or OL Program Delivery, and Dean or designate: " + box1);
+                writer.WriteLine("User identified the outcome they are seeking: " + box2);
+                writer.WriteLine("User confirmed that the information they've provided is truthful and accurate: " + box3);
+                writer.WriteLine("User paid the fee: " + box4);
+                writer.WriteLine("Signature of applicant: " + sign);
+                writer.WriteLine("Date subbmitted: " + date);
+                writer.Close();
             }
         }
     }

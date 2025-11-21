@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
@@ -43,6 +45,8 @@ namespace Assignment1
 
         public Boolean submitted = false;
 
+        private String filePath = "";
+
 
         public Record(int stageNum)
         {
@@ -60,9 +64,54 @@ namespace Assignment1
             this.description = description;
         }
 
+        public void setFilePath(String filePath)
+        {
+            this.filePath = filePath;
+        }
+
+        public String getFilePath()
+        {
+            return filePath;
+        }
+
         public void createFile(String filePath)
-        { 
-            
+        {
+            StreamWriter writer = new StreamWriter(filePath);
+            writer.WriteLine("Form 1");
+            writer.WriteLine(studentName);
+            writer.WriteLine(studentID);
+            writer.WriteLine(studentEmail);
+            writer.WriteLine(studentPhoneNum);
+            writer.WriteLine(courseAcronNum);
+            writer.WriteLine(courseTitle);
+            writer.WriteLine(radButton1);
+            writer.WriteLine(radButton2);
+            writer.WriteLine(radButton3);
+            writer.WriteLine(year);
+            writer.WriteLine(openLearningStart);
+            writer.WriteLine(appeal);
+
+            writer.WriteLine("Form 2");
+            writer.WriteLine(resolutionInput);
+            writer.WriteLine(checkBox1);
+            writer.WriteLine(checkBox2);
+            writer.WriteLine(checkBox3);
+            writer.WriteLine(checkBox4);
+            writer.WriteLine(signature);
+            writer.WriteLine(date);
+
+            writer.WriteLine("Form 3");
+            writer.WriteLine(instructorInput);
+
+            writer.WriteLine("Form 4");
+            writer.WriteLine(chairName);
+            writer.WriteLine(chairInput);
+
+            writer.WriteLine("Form 5");
+            writer.WriteLine(name);
+            writer.WriteLine(description);
+
+            writer.Close();
         }
 
         public void setOpenLearningStart(String openLearningStart)

@@ -42,6 +42,7 @@ namespace Assignment1
         {
             record.setInstructorInput(input);
             record.setStageNum(3);
+            saveToFile();
             this.Close();
         }
        
@@ -71,6 +72,16 @@ namespace Assignment1
                     textbox.ReadOnly = true;
                 }
                
+            }
+        }
+
+        private void saveToFile()
+        {
+            String filePath = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form3.txt";
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.WriteLine("Describe the outcome of your communtication with this individual and/or attached copies of related communications " + "\n" + input);
+                writer.Close();
             }
         }
     }

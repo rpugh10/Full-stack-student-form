@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace Assignment1
     {
         String input = "";
         String name = "";
+        String wordSearch = "";
         Record record = new Record();
         public Form4()
         {
@@ -36,6 +38,7 @@ namespace Assignment1
             record.setChairName(name);
             record.setChairInput(input);
             record.setStageNum(4);
+            saveToFile();
             this.Close();
         }
 
@@ -56,7 +59,7 @@ namespace Assignment1
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            if(record.getStageNum() >= 4)
+            if (record.getStageNum() >= 4)
             {
                 SetReadOnly(this);
             }
@@ -84,13 +87,37 @@ namespace Assignment1
                 {
                     textbox.ReadOnly = true;
                 }
-               
+
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            var startInfo = new ProcessStartInfo();
+            startInfo.FileName = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Comp2210C#\\PythonSearchFuntion.py";
 
+            var script = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Comp2210C#\\PythonSearchFuntion.py";
+
+            startInfo.Arguments = $"\"{script}\"\"{wordSearch}\"\"{record.getFilePath()}\"";
+
+         
+        }
+
+        private void saveToFile()
+        {
+            String filePath = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form4.txt";
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.WriteLine("Name of individual " + "\n" + name);
+                writer.WriteLine("Describe the outcome of your communtication with this individual and/or attached copies of related communications " + "\n" + input);
+                writer.Close();
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            wordSearch = textBox2.Text;
         }
     }
+
 }

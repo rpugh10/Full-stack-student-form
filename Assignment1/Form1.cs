@@ -127,7 +127,7 @@ namespace Assignment1
             record.setCourseTitle(courseName);
             record.setStudentEmail(studentEmail);
             record.setStageNum(1);
-            saveToFile(this, e);
+            saveToFile();
             this.Close();
         }
 
@@ -232,24 +232,29 @@ namespace Assignment1
             }
         }
 
-        private void saveToFile(Object sender, EventArgs e)
+        private void saveToFile()
         {
-            StreamWriter writer = new StreamWriter("C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form1.txt");
-            writer.WriteLine(studentName);
-            writer.WriteLine(studentEmail);
-            writer.WriteLine(studentID);
-            writer.WriteLine(studentPhoneNumber);   
-            writer.WriteLine(courseNumber);
-            writer.WriteLine(profName);
-            writer.WriteLine(courseName);
-            writer.WriteLine(fall);
-            writer.WriteLine(winter);
-            writer.WriteLine(summer);
-            writer.WriteLine(year);
-            writer.WriteLine(openLearnin);
-            writer.WriteLine(input);
-            writer.WriteLine("End of form 1");
-            writer.Close();
+            String filePath = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form1.txt";
+
+       
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.WriteLine("Student name: " + studentName);
+                writer.WriteLine("Student email: " + studentEmail);
+                writer.WriteLine("Studnet ID: " + studentID);
+                writer.WriteLine("Student phone number: " + studentPhoneNumber);
+                writer.WriteLine("Course number: " + courseNumber);
+                writer.WriteLine("Professor name: " + profName);
+                writer.WriteLine("Course name: " + courseName);
+                writer.WriteLine("User selected fall semeseter: " + fall);
+                writer.WriteLine("User selected winter semester: " + winter);
+                writer.WriteLine("User selected summer semester: " + summer);
+                writer.WriteLine("Year: " + year);
+                writer.WriteLine("Open learning start date: " + openLearnin);
+                writer.WriteLine("Summary of appeal: " + input);
+                writer.WriteLine("End of form 1");
+                writer.Close();
+            }
         }
     }
 }
