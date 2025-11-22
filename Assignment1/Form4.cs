@@ -85,10 +85,11 @@ namespace Assignment1
                 {
                     richtxt.ReadOnly = true;
                 }
-                else if (control is TextBox textbox)
+                else if (control is TextBox textbox && textbox.Name != textBox2.Name)
                 {
-                    textbox.ReadOnly = true;
+                        textbox.ReadOnly = true;
                 }
+                
 
             }
         }

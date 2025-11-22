@@ -16,6 +16,7 @@ namespace Assignment1
         String description = "";
         String name = "";
         Record record = new Record();
+        String wordSearch = "";
         public Form5()
         {
             InitializeComponent();
@@ -80,7 +81,7 @@ namespace Assignment1
                 {
                     richtxt.ReadOnly = true;
                 }
-                else if (control is TextBox textbox)
+                else if (control is TextBox textbox && textbox.Name != textBox2.Name)
                 {
                     textbox.ReadOnly = true;
                 }
@@ -101,6 +102,11 @@ namespace Assignment1
                 writer.WriteLine("Describe the outcome of your communtication with this individual and/or attached copies of related communications " + " \n" + description);
                 writer.Close();
             }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            wordSearch = textBox2.Text;
         }
     }
 
