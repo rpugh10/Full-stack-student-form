@@ -94,35 +94,34 @@ namespace Assignment1
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)//This method and the next two methods were from a YouTube tutorial by Programming Concepts
+        private void button2_Click(object sender, EventArgs e)
         {
-            string cmd = "-u searchFunction.py";
-            Process process = new Process();
-            process.StartInfo.FileName = "python.exe";
-            process.StartInfo.Arguments = cmd;
-            process.StartInfo.RedirectStandardOutput = true;
-            process.StartInfo.RedirectStandardError = true;
-            process.StartInfo.UseShellExecute = false;
-            process.StartInfo.CreateNoWindow = true;
-            
-            process.ErrorDataReceived += Process_ErrorDataRecieved;
-            process.OutputDataReceived += Process_OutputDataReceived;
+            string pythonPath = @"C:\Program Files\Python314\python.exe";
+            string scriptPath = @"C:\Users\T00692297\OneDrive - Thompson Rivers University\Comp2210C#\Assignment1\Assignment1\bin\Debug\searchFunction.py";
+            var startInfo = new ProcessStartInfo();
+            startInfo.FileName = pythonPath;
+            var script = scriptPath;
+            startInfo.Arguments = $"\"{script}\"\"{wordSearch}\"\"{record.getFilePath()}\"";
+            startInfo.UseShellExecute = false;
+            startInfo.CreateNoWindow = true;
+            startInfo.RedirectStandardOutput = true;
+            startInfo.RedirectStandardError = true;
 
-         
-            process.Start();
-            process.BeginErrorReadLine();
-            process.BeginOutputReadLine();
-         
-        }
+            var error = "";
+            var output = "";
 
-        private void Process_OutputDataReceived(object sender, DataReceivedEventArgs e)
-        {
-            richTextBox2.Text += e.Data.ToString() + Environment.NewLine;
-        }
+            using (Process process = Process.Start(startInfo))
+            {
+                error = process.StandardError.ReadToEnd();
+                output = process.StandardOutput.ReadToEnd();
+            }
 
-        private void Process_ErrorDataRecieved(object sender, DataReceivedEventArgs e)
-        {
-            richTextBox2.Text += e.Data.ToString();
+            Console.WriteLine("Errors");
+            Console.WriteLine(error);
+            Console.WriteLine();
+            Console.WriteLine("Output");
+            Console.WriteLine(output);
+            Console.WriteLine();
         }
 
         private void saveToFile()

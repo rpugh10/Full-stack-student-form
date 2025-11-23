@@ -127,8 +127,8 @@ namespace Assignment1
             if(saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 record.createFile(filePath);
+                record.setFilePath(filePath);
             }
-
         }
 
         private static void openFileExplorer(String filePath)
