@@ -43,13 +43,13 @@ namespace Assignment1
             this.box4 = record.getCheckBox4();
             this.sign = record.getSignature();
             this.date = record.getDate();
-            richTextBox1.Text = record.getResolution();
-            checkBox1.Checked = record.getCheckBox1();
-            checkBox2.Checked = record.getCheckBox2();
-            checkBox3.Checked = record.getCheckBox3();
-            checkBox4.Checked = record.getCheckBox4();
-            textBox1.Text = record.getSignature();
-            
+            richTextBox1.Text = input;
+            checkBox1.Checked = box1;
+            checkBox2.Checked = box2;
+            checkBox3.Checked = box3;
+            checkBox4.Checked = box4;
+            textBox1.Text = sign;
+            textBox2.Text = date;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -154,7 +154,7 @@ namespace Assignment1
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-         
+            date = textBox2.Text;
         }
 
         private void SetReadOnly(Control parent)

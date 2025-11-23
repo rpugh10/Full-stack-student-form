@@ -94,20 +94,35 @@ namespace Assignment1
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)//This method and the next two methods were from a YouTube tutorial by Programming Concepts
         {
-            var startInfo = new ProcessStartInfo();
-            startInfo.FileName = "python";
+            string cmd = "-u searchFunction.py";
+            Process process = new Process();
+            process.StartInfo.FileName = "python.exe";
+            process.StartInfo.Arguments = cmd;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.RedirectStandardError = true;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.CreateNoWindow = true;
+            
+            process.ErrorDataReceived += Process_ErrorDataRecieved;
+            process.OutputDataReceived += Process_OutputDataReceived;
 
-            var script = @"C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Comp2210C#\\RealPythonSearchFunction.py";
-
-            startInfo.Arguments = $"\"{script}\"\"{wordSearch}\"\"{record.getFilePath()}\"";            startInfo.UseShellExecute = false;            startInfo.CreateNoWindow = true;            startInfo.RedirectStandardOutput = true;            startInfo.RedirectStandardError = true;            var error = "";            var output = "";            using (Process process = Process.Start(startInfo))
-            {
-                error = process.StandardError.ReadToEnd();
-                output = process.StandardOutput.ReadToEnd();
-            }
-            richTextBox2.Text = output + "\n" + error;
          
+            process.Start();
+            process.BeginErrorReadLine();
+            process.BeginOutputReadLine();
+         
+        }
+
+        private void Process_OutputDataReceived(object sender, DataReceivedEventArgs e)
+        {
+            richTextBox2.Text += e.Data.ToString() + Environment.NewLine;
+        }
+
+        private void Process_ErrorDataRecieved(object sender, DataReceivedEventArgs e)
+        {
+            richTextBox2.Text += e.Data.ToString();
         }
 
         private void saveToFile()
