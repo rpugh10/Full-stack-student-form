@@ -96,12 +96,12 @@ namespace Assignment1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string pythonPath = @"C:\Program Files\Python314\python.exe";
-            string scriptPath = @"C:\Users\T00692297\OneDrive - Thompson Rivers University\Comp2210C#\Assignment1\Assignment1\bin\Debug\searchFunction.py";
+            string pythonPath = @"C:\Program Files\Python37\python.exe";
+            string scriptPath = @"C:\Users\T00692297\OneDrive - Thompson Rivers University\Comp2210C#\PythonSearchFuntion.py";
             var startInfo = new ProcessStartInfo();
             startInfo.FileName = pythonPath;
             var script = scriptPath;
-            startInfo.Arguments = $"\"{script}\"\"{wordSearch}\"\"{record.getFilePath()}\"";
+            startInfo.Arguments = $"\"{script}\" \"{wordSearch}\" \"{record.getFilePath()}\"";
             startInfo.UseShellExecute = false;
             startInfo.CreateNoWindow = true;
             startInfo.RedirectStandardOutput = true;
@@ -122,6 +122,10 @@ namespace Assignment1
             Console.WriteLine("Output");
             Console.WriteLine(output);
             Console.WriteLine();
+
+            Console.WriteLine($"wordSearch: {wordSearch}");
+            Console.WriteLine($"File Path: {record.getFilePath()}");
+
         }
 
         private void saveToFile()
