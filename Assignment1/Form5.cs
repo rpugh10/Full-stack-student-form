@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -90,7 +91,32 @@ namespace Assignment1
 
         private void button2_Click(object sender, EventArgs e)
         {
+            string pythonPath = @"C:\Program Files\Python37\python.exe";
+            string scriptPath = @"C:\Users\T00692297\OneDrive - Thompson Rivers University\Comp2210C#\PythonSearchFuntion.py";
+            var startInfo = new ProcessStartInfo();
+            startInfo.FileName = pythonPath;
+            var script = scriptPath;
+            startInfo.Arguments = $"\"{script}\" \"{wordSearch}\" \"{record.getFilePath()}\"";
+            startInfo.UseShellExecute = false;
+            startInfo.CreateNoWindow = true;
+            startInfo.RedirectStandardOutput = true;
+            startInfo.RedirectStandardError = true;
 
+            var error = "";
+            var output = "";
+
+            using (Process process = Process.Start(startInfo))
+            {
+                error = process.StandardError.ReadToEnd();
+                output = process.StandardOutput.ReadToEnd();
+            }
+
+            Console.WriteLine("Errors");
+            Console.WriteLine(error);
+            Console.WriteLine();
+            Console.WriteLine("Output");
+            Console.WriteLine(output);
+            Console.WriteLine();
         }
 
         private void saveToFile()

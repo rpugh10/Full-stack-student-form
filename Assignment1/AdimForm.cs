@@ -124,7 +124,7 @@ namespace Assignment1
             String filePath = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form6.txt";
             SaveFileDialog saveToFile = new SaveFileDialog();
             saveToFile.Filter = "txt files (*.txt)| *.txt";
-            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if(saveToFile.ShowDialog() == DialogResult.OK)
             {
                 record.createFile(filePath);
                 record.setFilePath(filePath);

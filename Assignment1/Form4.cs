@@ -123,9 +123,6 @@ namespace Assignment1
             Console.WriteLine(output);
             Console.WriteLine();
 
-            Console.WriteLine($"wordSearch: {wordSearch}");
-            Console.WriteLine($"File Path: {record.getFilePath()}");
-
         }
 
         private void saveToFile()
