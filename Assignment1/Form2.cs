@@ -106,6 +106,7 @@ namespace Assignment1
             this.Close();
         }
 
+        //Checking to see if checkbox is checked or not
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox2.Checked)

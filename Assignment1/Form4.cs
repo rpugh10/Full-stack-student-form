@@ -25,6 +25,7 @@ namespace Assignment1
             InitializeComponent();
         }
 
+        //When the form is repopened, getting all the informaion from the record class
         public Form4(Record record)
         {
             InitializeComponent();
@@ -35,6 +36,7 @@ namespace Assignment1
             textBox1.Text = record.getChairName();
         }
 
+        //Setting user input to record class, setting the stage number and saving to a file 
         private void button1_Click(object sender, EventArgs e)
         {
             record.setChairName(name);
@@ -59,6 +61,7 @@ namespace Assignment1
 
         }
 
+        //Checking the stage number to see if this form needs to be set to read only
         private void Form4_Load(object sender, EventArgs e)
         {
             if (record.getStageNum() >= 4)
@@ -72,6 +75,7 @@ namespace Assignment1
 
         }
 
+        //Setting the controls in this form to read only, except the search textbox
         private void SetReadOnly(Control parent)
         {
             foreach (Control control in parent.Controls)
@@ -94,9 +98,10 @@ namespace Assignment1
             }
         }
 
+        //Adding python
         private void button2_Click(object sender, EventArgs e)
         {
-            string pythonPath = @"C:\Program Files\Python37\python.exe";
+            string pythonPath = @"C:\Users\T00692297\AppData\Local\Microsoft\WindowsApps\python.exe";
             string scriptPath = @"C:\Users\T00692297\OneDrive - Thompson Rivers University\Comp2210C#\PythonSearchFuntion.py";
             var startInfo = new ProcessStartInfo();
             startInfo.FileName = pythonPath;
@@ -125,6 +130,7 @@ namespace Assignment1
 
         }
 
+        //Saving the information on this form to a file
         private void saveToFile()
         {
             String filePath = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form4.txt";
@@ -136,6 +142,7 @@ namespace Assignment1
             }
         }
 
+        //Saving the text the user enters to the wordSearch variable 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             wordSearch = textBox2.Text;

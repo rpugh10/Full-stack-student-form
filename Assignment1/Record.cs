@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Assignment1
 {
+    //All the variables for the forms 
     public class Record
     {
         private int stageNum = 0;
@@ -47,7 +48,7 @@ namespace Assignment1
 
         private String filePath = "";
 
-
+        //Getters and setters 
         public Record(int stageNum)
         {
             this.stageNum = stageNum;
@@ -74,6 +75,7 @@ namespace Assignment1
             return filePath;
         }
 
+        //Writing all the forms onto one file. Passsing this file to the search function 
         public void createFile(String filePath)
         {
             StreamWriter writer = new StreamWriter(filePath);

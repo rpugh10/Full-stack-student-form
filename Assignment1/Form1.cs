@@ -166,6 +166,7 @@ namespace Assignment1
             courseName = textBox13.Text;
         }
 
+        //Checking to see if radio button is clicked or not 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton1.Checked)

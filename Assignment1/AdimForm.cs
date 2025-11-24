@@ -26,7 +26,7 @@ namespace Assignment1
         }
 
 
-
+        //Opening the correct form based on what button is clicked
         private void button1_Click(object sender, EventArgs e)
         {
             Form1 form = new Form1(record);
@@ -67,6 +67,7 @@ namespace Assignment1
 
         }
 
+        //Checking to see what forms should be unlocked 
         private void AdimForm_Load(object sender, EventArgs e)
         {
             int stageNum = record.getStageNum();
@@ -112,6 +113,7 @@ namespace Assignment1
             }
         }
 
+        //Opening the file explorer to load a file 
         private void button6_Click(object sender, EventArgs e)
         {
             String filePath = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output";
@@ -119,6 +121,7 @@ namespace Assignment1
 
         }
 
+        //Saving all the forms to one file and setting the file path in the record class
         private void button7_Click(object sender, EventArgs e)
         {
             String filePath = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form6.txt";
@@ -131,6 +134,7 @@ namespace Assignment1
             }
         }
 
+        //Starting a new process to the path the user inputs 
         private static void openFileExplorer(String filePath)
         {
             Process.Start(filePath);

@@ -20,6 +20,7 @@ namespace Assignment1
             InitializeComponent();
         }
 
+        //When the form is repopened, getting all the informaion from the record class
         public Form3(Record record)
         {
             InitializeComponent();
@@ -38,6 +39,7 @@ namespace Assignment1
             input = richTextBox1.Text;
         }
 
+        //Saving the user input to a file and setting the stage number and input
         private void button1_Click(object sender, EventArgs e)
         {
             record.setInstructorInput(input);
@@ -54,6 +56,7 @@ namespace Assignment1
             }
         }
 
+        //Setting this form to read only
         private void SetReadOnly(Control parent)
         {
             foreach (Control control in parent.Controls)
@@ -75,6 +78,7 @@ namespace Assignment1
             }
         }
 
+        //Saving user input to a file
         private void saveToFile()
         {
             String filePath = "C:\\Users\\T00692297\\OneDrive - Thompson Rivers University\\Output\\Form3.txt";
