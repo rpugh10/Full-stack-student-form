@@ -93,7 +93,7 @@ namespace Assignment1
         private void button2_Click(object sender, EventArgs e)
         {
             string pythonPath = @"C:\Program Files\Python37\python.exe";
-            string scriptPath = @"C:\Users\T00692297\OneDrive - Thompson Rivers University\Comp2210C#\PythonSearchFuntion.py";
+            string scriptPath = @"C:\Users\T00692297\OneDrive - Thompson Rivers University\Comp2210C#\Assignment1\PythonSearchFuntion.py";
             var startInfo = new ProcessStartInfo();
             startInfo.FileName = pythonPath;
             var script = scriptPath;
