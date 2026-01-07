@@ -1,10 +1,10 @@
-Appeal / Case Report Form System
+### Appeal / Case Report Form System
 
-This project is a multi-stage full-stack GUI application that manages the complete lifecycle of a student appeal / case report form. It extends the original Appeal Form lab by persisting all form stages to files, enforcing stage-based access control, and providing administrative analytics.
+## This project is a multi-stage full-stack GUI application that manages the complete lifecycle of a student appeal / case report form. It extends the original Appeal Form lab by persisting all form stages to files, enforcing stage-based access control, and providing administrative analytics.
 
 The system ensures that once a stage is completed and submitted (signed), earlier stages become locked (read-only) and only the next legal stage becomes accessible.
 
-🎯 Project Objectives
+## 🎯 Project Objectives
 
 Implement all stages of the Case Report / Appeal Form as a GUI
 
@@ -18,7 +18,7 @@ Provide administrative oversight of all active cases
 
 Analyze trends in appeal issues using keyword detection
 
-🧩 Case Report Stages
+## 🧩 Case Report Stages
 
 Each case progresses through the following stages:
 
@@ -54,7 +54,7 @@ Dean completes final decision stage
 
 At all times, only the current legal stage is editable.
 
-🔒 Access Control Rules
+## 🔒 Access Control Rules
 
 Users may only:
 
@@ -72,7 +72,7 @@ Modify data outside their role
 
 All access rules are enforced by the system logic, not user choice.
 
-📁 File Management
+## 📁 File Management
 
 Each case is stored as a file on disk
 
@@ -92,7 +92,7 @@ That section becomes permanently read-only
 
 The next stage is unlocked
 
-🖥️ Graphical User Interface (GUI)
+## 🖥️ Graphical User Interface (GUI)
 
 The GUI provides:
 
@@ -116,7 +116,7 @@ Locked vs editable sections
 
 Open / Save file dialogs
 
-📊 Administration Dashboard
+## 📊 Administration Dashboard
 
 The Administration View allows authorized users to:
 
@@ -134,7 +134,7 @@ Current stage (Student / Instructor / Chair / Dean)
 
 Completion status
 
-🔍 Keyword Detection & Issue Analysis (Python Integration)
+## 🔍 Keyword Detection & Issue Analysis (Python Integration)
 
 To support decision-making, the Dean and Department Chairs can analyze trends across cases.
 
@@ -166,7 +166,7 @@ Bonus Feature
 
 Highlight detected keywords directly inside the RTF text boxes
 
-🧱 Tech Stack (Typical)
+## 🧱 Tech Stack (Typical)
 GUI / Frontend
 
 .NET (Windows Forms / WPF)
@@ -185,7 +185,7 @@ Python script for keyword detection
 
 Integrated execution and result reporting
 
-📚 Learning Outcomes
+## 📚 Learning Outcomes
 
 This project demonstrates:
 
@@ -201,7 +201,7 @@ Inter-process communication (GUI ↔ Python)
 
 Text analysis and keyword detection
 
-🏁 Submission Notes
+## 🏁 Submission Notes
 
 All required stages are implemented
 
@@ -213,6 +213,6 @@ Administrative dashboard is functional
 
 Python keyword detection is integrated
 
-📄 License
+## 📄 License
 
 This project was developed for academic purposes.
